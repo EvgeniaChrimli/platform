@@ -1,0 +1,63 @@
+@import "./styles/fonts", "./styles/variables", "./styles/header",
+  "./styles/top", "./styles/apply";
+
+*,
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+li {
+  list-style: none;
+}
+
+.container {
+  max-width: 1580px;
+  margin: 0 auto;
+}
+@media (max-width: 1200px) {
+  .container {
+    max-width: 1080px;
+  }
+}
+@media (max-width: 375px) {
+  .container {
+    max-width: 321px;
+  }
+}
+
+.btn {
+  font-size: clamp(1.125rem, 1.0896rem + 0.1509vw, 1.25rem);
+  padding: 25px 40px;
+  border-radius: 40px;
+  font-family: $coFo, sans-serif;
+  white-space: nowrap;
+  cursor: pointer;
+}
+@media (max-width: 1230px) {
+  .btn {
+    padding: 7px 12px;
+  }
+}
+
+.btn-violet {
+  color: $color-white;
+  background-color: $color-violet;
+  border: transparent;
+  font-size: clamp(1.125rem, 1.0896rem + 0.1509vw, 1.25rem);
+  padding: 25px 40px;
+  border-radius: 40px;
+  font-family: $coFo, sans-serif;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+@media (max-width: 1100) {
+  .btn-violet {
+    padding: 16px 29px;
+  }
+}
