@@ -1,0 +1,26 @@
+entryPoints:
+  web:
+    address: ":80"
+  websecure:
+    address: ":443"
+
+providers:
+  file:
+    directory: /etc/traefik/dynamic
+    watch: true # подхватывать изменения в dynamic-конфигах без рестарта
+
+certificatesResolvers:
+  letsencrypt:
+    acme:
+      email: your-email@example.com # замените на свою почту — на неё придёт уведомление, если сертификат не продлится
+      storage: /etc/traefik/acme.json
+      httpChallenge:
+        entryPoint: web
+
+# Дашборд Traefik — удобно для отладки роутинга, но в проде либо выключите,
+# либо закройте отдельным роутером с basic-auth middleware (не оставляйте открытым всем).
+api:
+  dashboard: true
+
+log:
+  level: INFO

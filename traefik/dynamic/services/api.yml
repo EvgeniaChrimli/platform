@@ -1,0 +1,6 @@
+http:
+  services:
+    api-service:
+      loadBalancer:
+        servers:
+          - url: "http://backend:4000"

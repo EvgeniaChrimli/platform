@@ -1,0 +1,21 @@
+http:
+  routers:
+    frontend-http:
+      rule: 'Host(`{{ env "DOMAIN" }}`)'
+      entryPoints:
+        - web
+      middlewares:
+        - https-redirect
+      service: frontend-service
+      priority: 1
+
+    frontend-https:
+      rule: 'Host(`{{ env "DOMAIN" }}`)'
+      entryPoints:
+        - websecure
+      middlewares:
+        - remove-server-header
+      tls:
+        certResolver: letsencrypt
+      service: frontend-service
+      priority: 1

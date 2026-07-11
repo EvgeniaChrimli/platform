@@ -1,0 +1,6 @@
+http:
+  services:
+    frontend-service:
+      loadBalancer:
+        servers:
+          - url: "http://frontend:80"

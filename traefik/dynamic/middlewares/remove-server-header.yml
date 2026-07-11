@@ -1,0 +1,6 @@
+http:
+  middlewares:
+    remove-server-header:
+      headers:
+        customResponseHeaders:
+          Server: ""

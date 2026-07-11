@@ -1,0 +1,21 @@
+http:
+  routers:
+    api-http:
+      rule: 'Host(`{{ env "DOMAIN" }}`) && PathPrefix(`/api`)'
+      entryPoints:
+        - web
+      middlewares:
+        - https-redirect
+      service: api-service
+      priority: 2
+
+    api-https:
+      rule: 'Host(`{{ env "DOMAIN" }}`) && PathPrefix(`/api`)'
+      entryPoints:
+        - websecure
+      middlewares:
+        - remove-server-header
+      tls:
+        certResolver: letsencrypt
+      service: api-service
+      priority: 2
