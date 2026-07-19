@@ -1,0 +1,6 @@
+http:
+  services:
+    n8n-service:
+      loadBalancer:
+        servers:
+          - url: "http://n8n:5678"

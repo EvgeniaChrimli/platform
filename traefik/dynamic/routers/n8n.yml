@@ -1,0 +1,15 @@
+http:
+  routers:
+    n8n-http:
+      rule: 'Host(`{{ env "N8N_DOMAIN" }}`)'
+      entryPoints: [web]
+      middlewares: [https-redirect]
+      service: n8n-service
+
+    n8n-https:
+      rule: 'Host(`{{ env "N8N_DOMAIN" }}`)'
+      entryPoints: [websecure]
+      middlewares: [remove-server-header]
+      tls:
+        certResolver: letsencrypt
+      service: n8n-service
